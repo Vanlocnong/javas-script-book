@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Reading Cookie</title>
+<script type="text/javascript">
+var incCookies = document.cookie.split(";");
+var cookLength = incCookies.length;
+for (var c = 0; c < cookLength; c++) {
+    alert(incCookies[c]);
+}
+</script>
+</head>
+<body>
+<p>Hello</p>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Search</title>
+</head>
+<body>
+<form name="nameform" id="nameform" action="" method="post">
+Bookmark Search: <input id="textname" type="text" name="textname">
+</form>
+<div id="data"></div>
+<script type="text/javascript" src="ehandler.js"></script>
+<script type="text/javascript">
+
+function textSearch() {
+    var textName = document.getElementById("textname");
+    var dataNode = document.getElementById("data");
+    while (dataNode.hasChildNodes()) {
+        dataNode.removeChild(dataNode.firstChild);
+    }
+    listName(textName.value);
+}
+
+function readyAJAX() {
+    try {
+        return new XMLHttpRequest();
+    } catch(e) {
+        try {
+            return new ActiveXObject("Msxml2.XMLHTTP");
+        } catch(e) {
+            try {
+                return new ActiveXObject("Microsoft.XMLHTTP");
+            } catch(e) {
+                return "A newer browser is needed.";
+            }
+        }
+    }
+}
+function listName(text) {
+    var xmlEl = AJAXresponse.getElementsByTagName("bookmark");
+    elLength = xmlEl.length;
+    for (i = 0; i < elLength; i++) {
+        var div = document.createElement("div");
+        // Create the row elements
+        for (j = 0; j < xmlEl[i].childNodes.length; j++) {
+            // Skip it if the type is not 1
+            if (xmlEl[i].childNodes[j].nodeType != 1) {
+                continue;
+            }
+            var url = new RegExp("http");
+            if (! xmlEl[i].childNodes[j].firstChild.nodeValue.match(url)) {
+                var pattern = "^" + text;
+                var title = xmlEl[i].childNodes[j].firstChild.nodeValue;
+                var nameRegexp = new RegExp(pattern, "i");
+                var existDiv = document.getElementById(title);
+                if (! existDiv) {
+                    if (title.match(nameRegexp)) {
+                        var anchor = document.createElement("a");
+                        var xmlData =
+                            document.createTextNode(xmlEl[i].childNodes[j].firstChild.nodeValue);
+                        var urls = AJAXresponse.getElementsByTagName("url");
+                        anchor.setAttribute("href", urls[i].firstChild.nodeValue);
+                        anchor.appendChild(xmlData);
+                        div.appendChild(anchor);
+                    }
+                }
+            }
+        }
+        document.getElementById("data").appendChild(div);
+    }
+}
+
+var requestObj = readyAJAX();
+var url = "http://www.braingia.org/books/javascriptsbs/bookmark.xml";
+requestObj.open("GET",url,true);
+requestObj.send();
+var AJAXresponse;
+requestObj.onreadystatechange = function() {
+    if (requestObj.readyState == 4) {
+        if (requestObj.status == 200) { 
+            AJAXresponse = requestObj.responseXML;
+            listName("");
+        } else {
+            alert(requestObj.statusText);
+        }
+    }
+}
+var textEl = document.getElementById("textname");
+EHandler.add(textEl,"keyup", function() { textSearch(); } );
+
+</script>
+</body>
+</html>

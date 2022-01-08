@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>timer</title>
+<script type="text/javascript" src="ehandler.js"></script>
+</head>
+<body id="mainBody">
+<p>Hello</p>
+<script type="text/javascript">
+function sendAlert() {
+    alert("Hello");
+}
+function startTimer() {
+    var timerID = window.setTimeout(sendAlert,3000);
+}
+var mainBody = document.getElementById("mainBody");
+EHandler.add(mainBody, "load", function() { startTimer(); });
+</script>
+</body>
+</html>

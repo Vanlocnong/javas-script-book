@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>window open</title>
+<script type="text/javascript">
+function openwin(event) {
+    if (typeof window.open != "undefined") {
+        var opened =window.open(
+            "http://www.braingia.org","",
+"height=300,width=250,menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes");
+        event.preventDefault();
+        return false;
+    } else {
+        return true;
+    }
+}
+</script>
+</head>
+<body>
+<p><a target="Microsoft" href="http://www.microsoft.com" id="mslink">Go To Microsoft</a></p>
+<p id="braingia"><a href="DYNAMIC URL GOES HERE" id="braingialink">
+Go To Steve Suehring's Page</a></p>
+<script type = "text/javascript">
+var braingialink = document.getElementById("braingialink");
+if (window.addEventListener) {
+    braingialink.addEventListener("click",openwin,false);
+} else {
+    braingialink.attachEvent("onclick",openwin);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Night Sky</title>
+<script type="text/javascript" src="ehandler.js"></script>
+<script type="text/javascript">
+function loadConst() {
+    var areas = document.getElementsByTagName("area");
+    var areaLength = areas.length;
+    for (var i = 0; i < areaLength; i++) {
+        EHandler.add(areas[i],"mouseover", function(i) {
+                        return function() {
+                           document.getElementById("nightsky").src = "nightsky_map_" + 	areas[i].id + ".gif";
+                        };
+                    }(i));
+        EHandler.add(areas[i],"mouseout", function(i) {
+                        return function() {
+                            document.getElementById("nightsky").src = "nightsky_map_default.gif";
+                        };
+                    }(i));
+    }  //end for loop
+}  // end function loadConst
+</script>
+</head>
+<body>
+<p><img id="nightsky" name="nightsky" src="nightsky_map_default.gif" isMap useMap="#sky"
+alt="The Night Sky"></p>
+<p><map name="sky">
+<area id="ursaminor" coords="119,180,264,228" alt="Ursa Minor" shape="RECT"
+ href="http://en.wikipedia.org/wiki/Ursa_Minor">
+<area id="draco" coords="66,68,193,170" alt="Draco" shape="RECT"
+ href="http://en.wikipedia.org/wiki/Draco">
+<area id="draco" coords="36,170,115,246" alt="Draco" shape="RECT"
+ href="http://en.wikipedia.org/wiki/Draco">
+<area id="draco" coords="118,249,174,328" alt="Draco" shape="RECT"
+ href="http://en.wikipedia.org/wiki/Draco">
+<area id="cepheus" coords="201,47,298,175" alt="Draco" shape="RECT"
+ href="http://en.wikipedia.org/wiki/Cepheus_(constellation)">
+<area id="cassie" coords="334,95,389,204" alt="Cassiopeia" shape="RECT"
+ href="http://en.wikipedia.org/wiki/Cassiopeia_(constellation)">
+</map></p>
+<script type="text/javascript">
+var bodyEl = document.getElementsByTagName("body")[0];
+EHandler.add(bodyEl,"load", function() { loadConst(); });
+</script>
+</body>
+</html>

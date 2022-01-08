@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Iteration Test</title>
+<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+</head>
+<body>
+<table>
+  <th>Team Name</th>
+  <th>W-L Record</th>
+  <th>Win Percentage</th>
+  <tr>
+    <td>Team 1</td>
+    <td>12-8</td>
+    <td class="percentage">.600</td>
+  </tr>
+  <tr>
+    <td>Team 5</td>
+    <td>11-9</td>
+    <td class="percentage">.550</td>
+  </tr>
+  <tr>
+    <td>Team 4</td>
+    <td>10-10</td>
+    <td class="percentage">.500</td>
+  </tr>
+  <tr>
+    <td>Team 2</td>
+    <td>9-11</td>
+    <td class="percentage">.450</td>
+  </tr>
+  <tr>
+    <td>Team 6</td>
+    <td>6-14</td>
+    <td class="percentage">.300</td>
+  </tr>
+  <tr>
+    <td>Team 3</td>
+    <td>2-18</td>
+    <td class="percentage">.100</td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+$('tr:odd').css("background-color", "#abacab");
+
+});
+</script>
+
+</body>
+</html>

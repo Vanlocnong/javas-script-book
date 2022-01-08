@@ -1,0 +1,2 @@
+    if (x === y) {
+        alert("x is equal to y with a strict test.");

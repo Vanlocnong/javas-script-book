@@ -1,0 +1,2 @@
+var greeting = (name == "steve") ? "Hello Steve" : "Hello Unknown Person";
+alert(greeting);

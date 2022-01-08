@@ -1,0 +1,23 @@
+// Head block
+
+    var star = {};
+    
+    star["Polaris"] = new Object;
+    star["Mizar"] = new Object;
+    star["Aldebaran"] = new Object;
+    star["Rigel"] = new Object;
+    
+    star["Polaris"].constellation = "Ursa Minor";
+    star["Mizar"].constellation = "Ursa Major";
+    star["Aldebaran"].constellation = "Taurus";
+    star["Rigel"].constellation = "Orion";
+
+// Body block
+
+    for (starName in star) {
+        var para = document.createElement('p');
+        para.id = starName;
+        para.appendChild(document.createTextNode(starName + 
+            ": " + star[starName].constellation));
+        document.getElementsByTagName("body")[0].appendChild(para);
+    }

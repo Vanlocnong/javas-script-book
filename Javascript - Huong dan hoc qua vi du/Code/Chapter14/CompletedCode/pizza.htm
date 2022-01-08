@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>Pizza</title>
+    <script type="text/javascript" src="ehandler.js"></script>
+    <script type="text/javascript">
+    function flip(pizzatype) {
+        if (pizzatype.value == "Veggie Special") {
+            document.forms["pizzaform"].topping.value = "veggies";
+        } else if (pizzatype.value == "Meat Special") {
+            document.forms["pizzaform"].topping.value = "meat";
+        } else if (pizzatype.value == "Hawaiian") {
+            document.forms["pizzaform"].topping.value = "hampineapple";
+        }
+    }
+    </script>
+</head>
+<body>
+<form id="pizzaform" action="#">
+<p>
+<input id="vegbutton" type="button" name="veggiespecial" value="Veggie Special">
+<input id="meatbutton" type="button" name="meatspecial" value="Meat Special">
+<input id="hawbutton" type="button" name="hawaiian" value="Hawaiian">
+</p>
+Main Topping: <select name="topping">
+<option value="cheese" selected="selected">Cheese</option>
+<option value="veggies">Veggies</option>
+<option value="meat">Meat</option>
+<option value="hampineapple">Ham & Pineapples</option>
+</select>
+</form>
+<script type="text/javascript">
+var vegEl = document.getElementById("vegbutton");
+var meatEl = document.getElementById("meatbutton");
+var hawEl = document.getElementById("hawbutton");
+EHandler.add(vegEl,"click",function() { flip(vegEl); });
+EHandler.add(meatEl,"click",function() { flip(meatEl); });
+EHandler.add(hawEl,"click",function() { flip(hawEl); });
+</script>
+</body>
+</html>

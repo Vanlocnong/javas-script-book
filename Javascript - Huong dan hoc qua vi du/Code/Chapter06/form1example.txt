@@ -1,0 +1,13 @@
+    function alertName() {
+        var name = document.forms[0].nametext.value;
+        if (name == "steve") {
+            alert("Hello Steve.  Welcome to Machine");
+        }
+        else if (name == "nancy") {
+            alert("Hello Tim.");
+        }
+        else {
+            alert("Hello " + name);
+        }
+        return true;
+    }  //end function

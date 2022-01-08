@@ -1,0 +1,19 @@
+
+    function flip(pizzatype) {
+        if (pizzatype.value == "Veggie Special") {
+            document.forms["pizzaform"].topping.value = "veggies";
+        } else if (pizzatype.value == "Meat Special") {
+            document.forms["pizzaform"].topping.value = "meat";
+        } else if (pizzatype.value == "Hawaiian") {
+            document.forms["pizzaform"].topping.value = "hampineapple";
+        }
+    }
+
+
+var vegEl = document.getElementById("vegbutton");
+var meatEl = document.getElementById("meatbutton");
+var hawEl = document.getElementById("hawbutton");
+EHandler.add(vegEl,"click",function() { flip(vegEl); });
+EHandler.add(meatEl,"click",function() { flip(meatEl); });
+EHandler.add(hawEl,"click",function() { flip(hawEl); });
+

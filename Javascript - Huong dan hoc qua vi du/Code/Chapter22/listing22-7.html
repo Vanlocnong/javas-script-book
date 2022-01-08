@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>AJAX Data Test</title>
+<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+</head>
+<body>
+<div id="state">
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+
+$.ajax({
+	type: "POST",
+	url: "statefull.php",
+	dataType: "json",
+	success: showStateFull,
+	data: "state=WI"
+});
+
+function showStateFull(data,status) {
+	$("#state").text(data);
+}
+
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+var aNum = 4;
+aNum++;
+++aNum;
+
+var aNum = 4;
+var y = aNum++;  // y now has the value 4
+
+var aNum = 4;
+var y = ++aNum;  // y now has the value 5.

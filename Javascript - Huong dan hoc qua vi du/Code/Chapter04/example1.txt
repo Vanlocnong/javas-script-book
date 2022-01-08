@@ -1,0 +1,4 @@
+var h = 0xe;
+var i = 0x2;
+var j = h * i;
+alert(j);

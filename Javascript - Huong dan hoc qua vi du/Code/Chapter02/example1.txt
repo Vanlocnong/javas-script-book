@@ -1,0 +1,8 @@
+<script type = "text/javascript">
+
+function yetAnotherAlert(textToAlert) {
+    alert(textToAlert);
+}
+yetAnotherAlert("This is Chapter 2");
+
+</script>

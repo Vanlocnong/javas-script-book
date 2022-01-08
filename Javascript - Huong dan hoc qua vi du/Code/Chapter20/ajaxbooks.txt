@@ -1,0 +1,38 @@
+function readyAJAX() {
+    try {
+        return new XMLHttpRequest();
+    } catch(e) {
+        try {
+            return new ActiveXObject('Msxml2.XMLHTTP');
+        } catch(e) {
+            try {
+                return new ActiveXObject('Microsoft.XMLHTTP');
+            } catch(e) {
+                return "A newer browser is needed.";
+            }
+        }
+    }
+}
+}
+
+var requestObj = readyAJAX();
+var url = "http://YOUR SERVER HERE/books.xml";
+requestObj.open("GET",url,true);
+requestObj.send();
+var AJAXresponse;
+requestObj.onreadystatechange = function() {
+    if (requestObj.readyState == 4) {
+        if (requestObj.status == 200) {
+            AJAXresponse = requestObj.responseXML;
+            displayData(AJAXresponse);
+        } else {
+            alert(requestObj.statusText);
+        }
+    }
+}
+
+
+
+function displayData(response) {
+    var xmlEl = response.getElementsByTagName("book");
+    //Remainder of code is the same as chapter 18.

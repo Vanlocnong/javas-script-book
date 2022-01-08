@@ -1,0 +1,14 @@
+    function flip(pizzatype) {
+        if (pizzatype.value == "Veggie Special") {
+            document.getElementById("peppers").checked = "true";
+            document.getElementById("onions").checked = "true";
+            document.getElementById("mushrooms").checked = "true";
+        } else if (pizzatype.value == "Meat Special") {
+            document.getElementById("sausage").checked = "true";
+            document.getElementById("pepperoni").checked = "true";
+            document.getElementById("ham").checked = "true";
+        } else if (pizzatype.value == "Hawaiian") {
+            document.getElementById("ham").checked = "true";
+            document.getElementById("pineapple").checked = "true";
+        }
+    }

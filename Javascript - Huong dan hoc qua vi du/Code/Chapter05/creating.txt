@@ -1,0 +1,3 @@
+var y = "754";
+var negat = -y;
+alert(negat);

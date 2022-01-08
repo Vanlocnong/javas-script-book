@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Books</title>
+</head>
+<body>
+<div id="xmldata"></div>
+<script type="text/javascript">
+
+function readyAJAX() {
+    try {
+        return new XMLHttpRequest();
+    } catch(e) {
+        try {
+            return new ActiveXObject('Msxml2.XMLHTTP');
+        } catch(e) {
+            try {
+                return new ActiveXObject('Microsoft.XMLHTTP');
+            } catch(e) {
+                return "A newer browser is needed.";
+            }
+        }
+    }
+}
+
+var requestObj = readyAJAX();
+var url = "http://YOUR SERVER HERE/books.xml";
+requestObj.open("GET",url,true);
+requestObj.send();
+var AJAXresponse;
+requestObj.onreadystatechange = function() {
+    if (requestObj.readyState == 4) {
+        if (requestObj.status == 200) {
+            AJAXresponse = requestObj.responseXML;
+            displayData(AJAXresponse);
+        } else {
+            alert(requestObj.statusText);
+        }
+    }
+}
+
+function displayData(response) {
+    var xmlEl = response.getElementsByTagName("book");
+    var table = document.createElement("table");
+    table.border = "1";
+    var tbody = document.createElement("tbody");
+
+    // Append the body to the table
+    table.appendChild(tbody);
+    var row = document.createElement("tr");
+
+    // Append the row to the body
+    tbody.appendChild(row);
+
+    for (colHead = 0; colHead < xmlEl[0].childNodes.length; colHead++) {
+        if (xmlEl[0].childNodes[colHead].nodeType != 1) {
+            continue;
+        }
+        var tableHead = document.createElement("th");
+        var colName = document.createTextNode(xmlEl[0].childNodes[colHead].nodeName);
+        tableHead.appendChild(colName);
+        row.appendChild(tableHead);
+    }
+    tbody.appendChild(row);
+
+    // Create table row
+    for (i = 0; i < xmlEl.length; i++) {
+        var row = document.createElement("tr");
+        // Create the row/td elements
+        for (j = 0; j < xmlEl[i].childNodes.length; j++) {
+            // Skip it if the type is not 1
+            if (xmlEl[i].childNodes[j].nodeType != 1) {
+                continue;
+            }
+
+            // Insert the actual text/data from the XML document.
+            var td = document.createElement("td");
+            var xmlData = 
+                document.createTextNode(xmlEl[i].childNodes[j].firstChild.nodeValue);
+            td.appendChild(xmlData);
+            row.appendChild(td);
+        }
+        tbody.appendChild(row);
+    }
+    document.getElementById("xmldata").appendChild(table);
+}
+
+</script>
+</body>
+</html>

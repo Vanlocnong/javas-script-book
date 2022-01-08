@@ -1,0 +1,24 @@
+<head>
+<title>Chapter 10 Exercises</title>
+</script>
+</head>
+<body>
+<script type = "text/javascript" >
+
+var newelement = document.createElement("p");
+newelement.setAttribute("id","pelement");
+document.body.appendChild(newelement);
+newelement.appendChild(document.createTextNode("This is a paragraph, albeit a short one."));
+var anchorelem = document.createElement("a");
+anchorelem.setAttribute("id","aelement");
+anchorelem.setAttribute("href","http://www.braingia.org/");
+document.body.appendChild(anchorelem);
+anchorelem.appendChild(document.createTextNode("Click Here"));
+
+var existingp = document.getElementById("pelement");
+existingp.firstChild.nodeValue="This is the new text.";
+var newanchor = document.getElementById("aelement");
+newanchor.setAttribute("href","http://www.microsoft.com/");
+
+</script>
+</body>

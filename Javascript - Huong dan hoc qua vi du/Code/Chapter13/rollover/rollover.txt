@@ -1,0 +1,21 @@
+function rollover() {
+    var images = document.getElementsByTagName("img");
+    var imgLength = images.length;
+    for (var i = 0; i < imgLength; i++) {
+        EHandler.add(images[i],"mouseover", function(i) {
+            return function() {
+                images[i].src = images[i].id + "_over.png";
+            };
+        }(i));
+        EHandler.add(images[i],"mouseout", function(i) {
+            return function() {
+                images[i].src = images[i].id + "_default.png";
+            };
+        }(i));
+     }
+}
+
+
+var bodyEl = document.getElementsByTagName("body")[0];
+EHandler.add(bodyEl,"load", function() { rollover(); });
+

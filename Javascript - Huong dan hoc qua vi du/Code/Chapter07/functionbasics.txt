@@ -1,0 +1,13 @@
+function myFunction() {
+    var firstArg = arguments[0];
+    var secondArg = arguments[1];
+}
+
+
+function myFunction() {
+    var argLength = arguments.length;
+    for (var i = 0; i < argLength; i++) {
+	// Do something with each argument (i)
+    }
+}
+

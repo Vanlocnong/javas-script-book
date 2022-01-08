@@ -1,0 +1,23 @@
+<head>
+    <title>Chapter 7 Exercise 2</title>
+<script type = "text/javascript" >
+function addNums(firstNum,secondNum) {
+    if ((isNaN(firstNum)) || (isNaN(secondNum))) {
+        alert("Sorry, both arguments must be numbers.");
+        return;
+    }
+    else if (firstNum > secondNum) {
+        alert(firstNum + " is greater than " + secondNum);
+    }
+    else {
+        return firstNum + secondNum;
+    }
+}
+</script>
+</head>
+<body>
+<script type = "text/javascript" >
+alert(addNums("test",3));
+alert(addNums(2,3));
+</script>
+</body>

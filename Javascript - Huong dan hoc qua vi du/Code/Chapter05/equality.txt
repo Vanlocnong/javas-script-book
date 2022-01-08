@@ -1,0 +1,7 @@
+    var x = 42;
+    var y = "42";
+    if (x == y) {
+        alert("x is equal to y with a simple test.");
+    } else {
+        alert("x is not equal to y");
+    }

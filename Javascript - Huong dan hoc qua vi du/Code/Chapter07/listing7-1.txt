@@ -1,0 +1,7 @@
+function multiplyNums(x) {
+    return x * 2;
+}
+var theNumber = 10;
+var result = multiplyNums(theNumber);
+alert(result);
+

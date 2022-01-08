@@ -1,0 +1,33 @@
+switch(languageChoice) {
+    case "en":
+        // Language is English, execute code for English.
+        break;
+    case "de":
+        // Language is German, execute code for German.
+        break;
+    case "pt":
+        // Language is Portuguese, execute code for Portuguese.
+        break;
+    default:
+        // Language not chosen, use Swedish.
+}
+// Back to code outside the switch statement
+
+switch(countryChoice) {
+    case "US":
+    case "Australia":
+    case "Great Britain":
+        // Language is English, execute code for English
+        break;
+    case "Germany":
+        // Language is German, execute code for German.
+        break;
+    case "Portugal":
+        // Language is Portuguese, execute code for Portuguese.
+        break;
+    default:
+        // Locale not chosen, use Swedish.
+}
+// Back to code outside the loop
+
+

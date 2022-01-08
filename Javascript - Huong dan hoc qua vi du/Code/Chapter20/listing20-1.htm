@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/
+strict.dtd">
+<html>
+<head>
+<title>State Search</title>
+<script type="text/javascript" src="ehandler.js"></script>
+</head>
+<body>
+<form name="nameform" id="nameform" action="" method="post">
+Enter State: <input id="textname" type="text" name="textname">
+</form>
+<div id="data"></div>
+<script type="text/javascript">
+
+function textSearch() {
+    var textName = document.getElementById("textname");
+    var dataNode = document.getElementById("data");
+    while (dataNode.hasChildNodes()) {
+        dataNode.removeChild(dataNode.firstChild);
+    }
+    if (textName.value != "") {
+        listName(textName.value);
+    }
+}
+
+function readyAJAX() {
+    try {
+        return new XMLHttpRequest();
+    } catch(e) {
+        try {
+            return new ActiveXObject('Msxml2.XMLHTTP');
+        } catch(e) {
+            try {
+                return new ActiveXObject('Microsoft.XMLHTTP');
+            } catch(e) {
+                return "A newer browser is needed.";
+            }
+        }
+    }
+}
+
+function listName(text) {
+    var nameList = AJAXresponse.split(",");
+    var pattern = "^" + text;
+    var nameRegexp = new RegExp(pattern, "i");
+    for (var i = 0; i < nameList.length; i++) {
+        var existDiv = document.getElementById(nameList[i]);
+        if (! existDiv) {
+            if (nameList[i].match(nameRegexp)) {
+                var displayDiv = document.getElementById("data");
+                var newDiv = document.createElement("div");
+                if (window.attachEvent) {
+                    newDiv.attachEvent("onclick",function(e) {
+                        document.forms["nameform"].textname.value = 
+                            e.srcElement.firstChild.nodeValue;});
+                    newDiv.attachEvent("onmouseover",function(e) {
+                        e.srcElement.style.background = "#FFFFFF"; });
+                    newDiv.attachEvent("onmouseout",function(e) {
+                        e.srcElement.style.background = "#aaabba"; });
+                } else {
+                    newDiv.addEventListener("click",function () {
+                        document.forms["nameform"].textname.value = 
+                            this.firstChild.nodeValue; },false);
+                    newDiv.addEventListener("mouseover",function() { 
+                        this.style.background = "#FFFFFF"; },false);
+                    newDiv.addEventListener("mouseout",function() { 
+                        this.style.background = "#aaabba"; },false);
+                }
+                newDiv.setAttribute("id",nameList[i]);
+                newDiv.style.background = "#aaabba";
+                newDiv.style.color = "#000000";
+                newDiv.style.border = "solid 1px";
+                newDiv.style.display = "block";
+                newDiv.style.width = "175px";
+                newDiv.appendChild(document.createTextNode(nameList[i]));
+                displayDiv.appendChild(newDiv);
+            }
+        }
+    }
+}
+
+var requestObj = readyAJAX();
+var url = "http://YOUR SERVER HERE/statelist.php";
+requestObj.open("GET",url,true);
+requestObj.send();
+var AJAXresponse;
+requestObj.onreadystatechange = function() {
+    if (requestObj.readyState == 4) {
+        if (requestObj.status == 200) {
+            AJAXresponse = requestObj.responseText;
+        } else {
+            alert(requestObj.statusText);
+        }
+    }
+}
+
+var textEl = document.getElementById("textname");
+EHandler.add(textEl,"keyup", function() { textSearch(); } );
+ 
+
+</script>
+</body>
+</html>

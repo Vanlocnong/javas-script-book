@@ -1,0 +1,3 @@
+
+MyLibrary.sendAlert("hello, this is the message"); 
+

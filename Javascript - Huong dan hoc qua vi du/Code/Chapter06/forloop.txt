@@ -1,0 +1,6 @@
+
+var myArray = ["Vega","Deneb","Altair"];
+var arrayLength = myArray.length;
+for (var count = 0; count < arrayLength; count++ ) {
+    alert(myArray[count]);
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+
+<title>Onclick</title>
+<script type="text/javascript">
+function handleclick() {
+    alert("You Clicked Here");
+    return false;
+}
+
+</script>
+</head>
+<body>
+<p><a id="link1" href="#">Click Here</a></p>
+<script type = "text/javascript" >
+var link1 = document.getElementById("link1");
+if (typeof window.addEventListener != "undefined") {
+    link1.addEventListener("click",handleclick,false);
+} else {
+    link1.attachEvent("onclick",handleclick);
+}
+</script>
+
+</body>
+</html>

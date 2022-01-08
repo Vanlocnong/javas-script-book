@@ -1,0 +1,2 @@
+var myNumString = "100";
+var myNum = Number(myNumString);

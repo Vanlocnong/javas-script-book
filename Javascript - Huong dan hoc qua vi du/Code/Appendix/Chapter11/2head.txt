@@ -1,0 +1,46 @@
+<head>
+    <title>Pizza</title>
+    <script type = "text/javascript">
+
+    function prepza() {
+        var checkboxes = document.forms["pizzaform"].toppingcheck.length;
+        var crusttype = document.forms["pizzaform"].crust;
+        var size = document.forms["pizzaform"].size;
+        var crustlength = crusttype.length;
+        var sizelength = crusttype.length;
+        var newelement = document.createElement("p");
+        newelement.setAttribute("id","orderheading");
+        document.body.appendChild(newelement);
+        newelement.appendChild(document.createTextNode("This pizza will have:"));
+
+        for (var c = 0; c < crustlength; c++) {
+            if (crusttype[c].checked) {
+                  var newelement = document.createElement("p");
+                  newelement.setAttribute("id","crustelement" + i);
+                  document.body.appendChild(newelement);
+                  newelement.appendChild(document.createTextNode(
+                      crusttype[c].value + " Crust"));
+            }
+        }
+
+        for (var s = 0; s < sizelength; s++) {
+            if (size[s].checked) {
+                  var newelement = document.createElement("p");
+                  newelement.setAttribute("id","sizeelement" + i);
+                  document.body.appendChild(newelement);
+                  newelement.appendChild(document.createTextNode(size[s].value + " Size"));
+            }
+        }
+
+        for (var i = 0; i < checkboxes; i++) {
+            if (document.forms["pizzaform"].toppingcheck[i].checked) {
+                  var newelement = document.createElement("p");
+                  newelement.setAttribute("id","newelement" + i);
+                  document.body.appendChild(newelement);
+                  newelement.appendChild(document.createTextNode(
+                      document.forms["pizzaform"].toppingcheck[i].value));
+            }
+        }
+    }
+    </script>
+</head>

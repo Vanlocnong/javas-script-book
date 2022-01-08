@@ -1,0 +1,9 @@
+    for (colHead = 0; colHead < xmlEl[0].childNodes.length; colHead++) {
+        if (xmlEl[0].childNodes[colHead].nodeType != 1) {
+            continue;
+        }
+        var tableHead = document.createElement("th");
+        var colName = document.createTextNode(xmlEl[0].childNodes[colHead].nodeName);
+        tableHead.appendChild(colName);
+        row.appendChild(tableHead);
+    }

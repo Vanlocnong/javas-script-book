@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>A Basic Example</title>
+<script type="text/javascript" src="/jsbs/c11/ehandler.js"></script>
+<script type="text/javascript">
+function displayValue(){
+    var selected = document.forms["starform"].startype.value;
+    alert("You selected " + selected);
+}
+</script>
+</head>
+<body>
+<form id="starform" action="">
+Select A Constellation:
+<select name="startype" id="startype">
+<option selected="selected"> </option>
+<option value = "Aquila">Aquila</option>
+<option value = "Centaurus">Centaurus</option>
+<option value = "Canis Major">Canis Major</option>
+<option value = "Canis Minor">Canis Minor</option>
+<option value = "Corona Borealis">Corona Borealis</option>
+<option value = "Crux">Crux</option>
+<option value = "Cygnus">Cygnus</option>
+<option value = "Gemini">Gemini</option>
+<option value = "Lyra">Lyra</option>
+<option value = "Orion">Orion</option>
+<option value = "Taurus">Taurus</option>
+<option value = "Ursa Major">Ursa Major</option>
+<option value = "Ursa Minor">Ursa Minor</option>
+</select>
+</form>
+<script type="text/javascript">
+var selEl = document.getElementById("startype");
+EHandler.add(selEl,"change", function() { displayValue();  } );
+</script>
+</body>
+</html>
+

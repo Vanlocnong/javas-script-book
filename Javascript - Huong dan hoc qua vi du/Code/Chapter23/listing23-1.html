@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Hide</title>
+<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+<style type="text/css">
+.removeBtn {
+	color: #0000CC;
+}
+</style>
+</head>
+<body>
+<ul>
+<li id="option1">Option 1 <span class="removeBtn" id="remove1">(x)</span></li>
+<li id="option2">Option 2 <span class="removeBtn" id="remove2">(x)</span></li>
+<li id="option3">Option 3 <span class="removeBtn" id="remove3">(x)</span></li>
+<li id="option4">Option 4 <span class="removeBtn" id="remove4">(x)</span></li>
+</ul>
+<script type="text/javascript">
+$(document).ready(function() {
+
+$('#option1').click(function() {
+	$('#option1').hide();
+});
+$('#option2').click(function() {
+	$('#option2').hide();
+});
+$('#option3').click(function() {
+	$('#option3').hide();
+});
+$('#option4').click(function() {
+	$('#option4').hide();
+});
+
+});
+</script>
+
+</body>
+</html>

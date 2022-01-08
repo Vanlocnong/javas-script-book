@@ -1,0 +1,10 @@
+var crusttype = document.forms["pizzaform"].crust;
+var crustlength = crusttype.length;
+for (var c = 0; c < crustlength; c++) {
+    if (crusttype[c].checked) {
+          var newelement = document.createElement("p");
+          newelement.setAttribute("id","crustelement" + i);
+          document.body.appendChild(newelement);
+          newelement.appendChild(document.createTextNode(crusttype[c].value + " Crust"));
+    }
+}

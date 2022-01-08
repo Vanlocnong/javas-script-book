@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>JavaScript Step by Step</title>
+<link rel="stylesheet" href="ex1.css" type="text/css" />
+<link rel="stylesheet" href="ex2.css" type="text/css" />
+<script type="text/javascript">
+if (typeof document.styleSheets != "undefined") {
+    var stylerules;
+    if (typeof document.styleSheets[0].rules != "undefined") {
+        stylerules = document.styleSheets[0].rules;
+    } else {
+        stylerules = document.styleSheets[0].cssRules;
+    }
+
+    for (var i = 0; i < stylerules.length; i++) {
+        if (stylerules[i].selectorText.toLowerCase() == "h1") {
+            stylerules[i].style.fontFamily = "courier";
+        }
+    }
+}
+</script>
+</head>
+<body>
+<h1 id="heading">JavaScript Step by Step</h1>
+<p id="tagline">JavaScript Step by Step is a book by Steve Suehring, 
+published by Microsoft Press.</p>
+<p>The book emphasizes standards-based JavaScript that works on multiple 
+platforms through different browsers.</p>
+</body>
+</html>

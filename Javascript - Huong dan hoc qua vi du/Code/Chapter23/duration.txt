@@ -1,0 +1,6 @@
+$('.removeBtn').each(function(elm) {
+    $(this).click(function() {
+        $(this).parent().hide(500);
+    });
+});
+

@@ -1,0 +1,17 @@
+// Head code:
+
+    function processConfirm(answer) {
+        var result = "";
+        if (answer) {
+            result = "Excellent.  We'll play a nice game of chess.";
+        } else {
+            result = "Maybe later then.";
+        }
+        return result;
+    }
+
+// Body code:
+
+var confirmAnswer = confirm("Shall we play a game?");
+var theAnswer = processConfirm(confirmAnswer);
+alert(theAnswer);

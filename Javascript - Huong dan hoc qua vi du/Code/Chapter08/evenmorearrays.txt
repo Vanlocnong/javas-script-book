@@ -1,0 +1,20 @@
+var star = ["Polaris", "Deneb", "Vega", "Altair"];
+star.push("Aldebaran");
+
+var star = ["Polaris", "Deneb", "Vega", "Altair"];
+var removedElement = star.pop();
+
+var star = ["Polaris", "Deneb", "Vega", "Altair"];
+star.unshift("Aldebaran");
+
+var star = ["Polaris", "Deneb", "Vega", "Altair"];
+
+var star = ["Polaris", "Deneb", "Vega", "Altair"];
+var cutStars = star.splice(2,3);
+
+var star = ["Polaris", "Deneb", "Vega", "Altair"];
+var sortedStars = star.sort();
+
+var nums = [11,543,22,111];
+var sortedNums = nums.sort(); 
+

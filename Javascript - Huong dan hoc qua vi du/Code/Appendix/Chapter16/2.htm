@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Try/Catch</title>
+<script type="text/javascript">
+</script>
+</head>
+<body>
+<form name="formexample" id="formexample" action="#">
+<div id="citydiv">Enter a City: <input id="city" name="city"></div>
+<div><input id="submit" type="submit"></div>
+</form>
+<script type="text/javascript">
+function checkValid() {
+    try {
+        var cityField = document.forms[0]["city"];
+        if (cityField.value != "Stockholm") {
+            throw "It's not Stockholm";
+        }
+    }
+    catch(errorObject) {
+        alert(errorObject);
+    }
+}
+function init() {
+    document.forms[0].onsubmit = function() { return checkValid() };
+}
+window.onload = init;
+</script>
+</body>
+</html>

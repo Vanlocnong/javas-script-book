@@ -1,0 +1,4 @@
+        alert("Available Height: " + screen.availHeight);
+        alert("Total Height: " + screen.height);
+        alert("Available Width: " + screen.availWidth);
+        alert("Total Width: " + screen.width);

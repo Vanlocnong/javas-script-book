@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/
+strict.dtd">
+<html>
+<head>
+<title>Try/Catch</title>
+<script type="text/javascript" src="ehandler.js"></script>
+<script type="text/javascript" src="number.js"></script>
+</head>
+<body>
+<form name="formexample" id="formexample" action="#">
+<div id="citydiv">Enter a Number Between 1 and 100: <input id="num" name="num"> <span id="feedback"> </span></div>
+<div><input id="submit" type="submit"></div>
+</form>
+<script type="text/javascript">
+var formEl = document.getElementsByTagName("form")[0];
+EHandler.add(formEl,"submit", function(eventObj) { checkValid(eventObj); } );
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+4 + 5;  // This would be 9.
+x + y;  // Adds x and y together.
+5 - 1;  // Results in 4.
+
+var aNum = 947; 
+var aStr= "Rush"; 
+var anotherNum = 53; 
+var aStrNum = "43";
+var result1 = aNum + aStr;   // result1 will be the string "947Rush";
+var result2 = aNum + anotherNum;  // result2 will be the number 1000;
+var result3 = aNum + aStrNum;  // result3 will be 94743;
+
+var aNum = 947; 
+var aStrNum = Number("43");
+var result3 = aNum + aStrNum;  // result3 will be 990;
+
+
+

@@ -1,0 +1,9 @@
+    var star = new Object;
+    
+    star.name = "Polaris";
+    star.type = "Double/Cepheid";
+    star.constellation = "Ursa Minor";
+    
+    for (var starProp in star) {
+        alert(starProp + " = " + star[starProp]);
+    }

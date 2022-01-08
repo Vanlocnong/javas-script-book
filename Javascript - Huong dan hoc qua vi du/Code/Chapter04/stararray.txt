@@ -1,0 +1,5 @@
+var star = new Array();
+star[0] = "Polaris";
+star[1] = "Deneb";
+star[2] = "Vega";
+star[3] = "Altair";

@@ -1,0 +1,4 @@
+<script type="text/javascript">
+var selEl = document.getElementById("starselect");
+EHandler.add(selEl,"change", function() { displayValue();  } );
+</script>

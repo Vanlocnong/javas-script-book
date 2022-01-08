@@ -1,0 +1,3 @@
+for (var propt in star) {
+    alert(propt);
+}  

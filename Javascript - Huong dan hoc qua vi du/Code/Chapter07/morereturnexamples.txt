@@ -1,0 +1,14 @@
+function myFunction(x) {
+    if (x == 1) {
+        return true;
+    } else {
+        return false;
+}
+
+function myFunction() {
+    var count = 0;
+    var firstNum = 48;
+    return;
+    var secondNum = 109;
+}
+

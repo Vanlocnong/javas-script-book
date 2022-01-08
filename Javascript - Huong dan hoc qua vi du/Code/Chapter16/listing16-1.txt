@@ -1,0 +1,9 @@
+try {
+    var numField = document.forms[0]["num"];
+    if (isNaN(numField.value)) {
+        throw "it's not a number";
+    }
+}
+catch(errorObject) {
+    alert(errorObject);
+}

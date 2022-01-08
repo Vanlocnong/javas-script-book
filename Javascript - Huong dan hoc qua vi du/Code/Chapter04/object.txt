@@ -1,0 +1,7 @@
+// Create a new object with curly braces
+var star = {};
+// Create named objects for each of four stars.
+star["Polaris"] = new Object;
+star["Deneb"] = new Object;
+star["Vega"] = new Object;
+star["Altair"] = new Object;

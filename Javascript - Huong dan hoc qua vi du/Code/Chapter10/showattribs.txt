@@ -1,0 +1,9 @@
+    function showattribs(e) {
+        var e = document.getElementById("braingialink");
+        var elemList = "";
+        for (var element in e) {
+            var attrib = e.getAttribute(element);       
+            elemList = elemList + element + ": " + attrib + "\n";
+        }
+        alert(elemList);
+    }

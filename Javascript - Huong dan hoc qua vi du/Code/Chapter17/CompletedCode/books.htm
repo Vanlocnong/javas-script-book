@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/
+strict.dtd">
+<html>
+<head>
+<title>Books</title>
+<script type="text/javascript" src="ehandler.js"></script>
+</head>
+<body id="mainBody">
+<div id="xmldata"></div>
+<script type="text/javascript">
+
+function displayData(xmlDocument) {
+    var xmlEl = xmlDocument.getElementsByTagName("book");
+    var table = document.createElement("table");
+    table.border = "1";
+    var tbody = document.createElement("tbody");
+
+    // Append the body to the table
+    table.appendChild(tbody);
+    var row = document.createElement("tr");
+
+    for (colHead = 0; colHead < xmlEl[0].childNodes.length; colHead++) {
+        if (xmlEl[0].childNodes[colHead].nodeType != 1) {
+            continue;
+        }
+        var tableHead = document.createElement("th");
+        var colName =
+document.createTextNode(xmlEl[0].childNodes[colHead].nodeName);
+        tableHead.appendChild(colName);
+        row.appendChild(tableHead);
+    }
+
+    // Append the row to the body
+    tbody.appendChild(row);
+
+    // Create table row
+    for (i = 0; i < xmlEl.length; i++) {
+        var row = document.createElement("tr");
+        // Create the row/td elements
+        for (j = 0; j < xmlEl[i].childNodes.length; j++) {
+            // Skip it if the type is not 1
+            if (xmlEl[i].childNodes[j].nodeType != 1) {
+                continue;
+            }
+
+            // Insert the actual text/data from the XML document.
+            var td = document.createElement("td");
+            var xmlData = 
+                document.createTextNode(xmlEl[i].childNodes[j].firstChild.nodeValue);
+            td.appendChild(xmlData);
+            row.appendChild(td);
+        }
+        tbody.appendChild(row);
+    }
+    document.getElementById("xmldata").appendChild(table);
+}
+function getXML() {
+
+    if (window.XMLHttpRequest) {
+        var httpObj = new XMLHttpRequest();
+    } else {
+        var httpObj = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    httpObj.open("GET","books.xml",false);
+    httpObj.send();
+    var xmlDocument = httpObj.responseXML;
+    displayData(xmlDocument);
+
+}
+
+var mainBody = document.getElementById("mainBody");
+EHandler.add(mainBody, "load", function() { getXML(); });
+
+</script>
+</body>
+</html>

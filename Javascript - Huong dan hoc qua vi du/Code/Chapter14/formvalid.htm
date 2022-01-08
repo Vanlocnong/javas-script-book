@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>A Basic Example</title>
+<script type="text/javascript" src="ehandler.js"></script>
+<script type="text/javascript">
+function formValid(eventObj) {
+        if (document.forms[0].textname.value.length == 0) {
+            alert("Name is required.");
+            if (eventObj.preventDefault) {
+                eventObj.preventDefault();
+            } else {
+                window.event.returnValue = false;
+            }
+            return false;
+        } else {
+            alert("Hello " + document.forms[0].textname.value);
+            return true;
+        }
+}
+</script>
+</head>
+<body>
+<p>A Basic Form Example</p>
+<form action="#">
+<p>Name <em>(Required)</em>: <input id="textbox1" name="textname" type="text" /></p>
+<p><input id="submitbutton1" type="submit" /></p>
+<script type="text/javascript">
+var formEl = document.getElementsByTagName("form")[0];
+EHandler.add(formEl,"submit", function(eventObj) { formValid(eventObj); } );
+</script>
+</form>

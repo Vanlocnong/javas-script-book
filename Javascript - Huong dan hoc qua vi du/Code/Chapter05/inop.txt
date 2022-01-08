@@ -1,0 +1,8 @@
+var myObj = { 
+	star: "Algol", 
+	constellation: "Perseus" 
+};
+
+if ("star" in myObj) {
+	// do something fancy
+}

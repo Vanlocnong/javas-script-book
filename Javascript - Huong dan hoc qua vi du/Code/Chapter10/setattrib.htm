@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>Set Attrib</title>
+
+</head>
+<body>
+<a href="http://www.braingia.org" id="braingialink">Steve Suehring's Web Site</a>
+<script type="text/javascript">
+    var a1 = document.getElementById("braingialink");
+    alert(a1.getAttribute("href"));
+    a1.setAttribute("href","http://www.microsoft.com");
+    alert(a1.getAttribute("href"));
+</script>
+</body>
+</html>
+

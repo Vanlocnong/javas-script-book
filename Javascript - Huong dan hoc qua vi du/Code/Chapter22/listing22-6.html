@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Trigger Test</title>
+<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+<style type="text/css">
+#braingiaLink {
+	border: solid 1px black;
+	padding: 3px;
+}
+#wrapperP {
+	padding: 50px;
+}
+</style>
+</head>
+<body>
+<div id="myDiv">
+Here is some text.<br>
+It goes inside this div<br>
+</div>
+<p id="wrapperP">
+<a id="braingiaLink" href="http://www.braingia.org">Steve Suehring</a>
+</p>
+<script type="text/javascript">
+$(document).ready(function() {
+
+$('#braingiaLink').click(function() {
+	alert("hello");
+	return true;
+});
+
+$('#myDiv').click(function() {
+	$('#braingiaLink').click();
+});
+
+$('#wrapperP').mouseover(function() {
+	$('#braingiaLink').hide();
+});
+
+$('#wrapperP').mouseout(function() {
+	$('#braingiaLink').show();
+});
+
+});
+</script>
+
+</body>
+</html>

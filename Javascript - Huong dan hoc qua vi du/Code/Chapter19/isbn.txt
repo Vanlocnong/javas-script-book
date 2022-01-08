@@ -1,0 +1,31 @@
+function readyAJAX() {
+    try {
+        return new XMLHttpRequest();
+    } catch(e) {
+        try {
+            return new ActiveXObject("Msxml2.XMLHTTP");
+        } catch(e) {
+            try {
+                return new ActiveXObject("Microsoft.XMLHTTP");
+            } catch(e) {
+                return "A newer browser is needed.";
+            }
+        }
+    }
+}
+var requestObj = readyAJAX();
+
+// *** Use your own URL in the line that follows ***
+
+var url = "http://www.braingia.org/isbn.php?isbn=9780735624498";
+requestObj.open("GET",url,true);
+requestObj.send();
+requestObj.onreadystatechange = function() {
+    if (requestObj.readyState == 4) {
+        if (requestObj.status == 200) {
+            alert(requestObj.responseText);
+        } else {
+            alert(requestObj.statusText);
+        }
+    }
+}

@@ -1,0 +1,5 @@
+function showStates(data,status) {
+	$.each(data, function(item) {;
+		$("#states").append("<div>" + data[item] + "</div>");
+	});
+}

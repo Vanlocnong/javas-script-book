@@ -1,0 +1,15 @@
+function rollover() {
+    var images = document.getElementsByTagName("img");
+    var imgLength = images.length;
+    for (var i = 0; i < imgLength; i++) {
+        images[i].onmouseover = mouseOver;
+        images[i].onmouseout = mouseOut;
+    }
+}
+function mouseOver() {
+    this.src = "box2.png";
+}
+
+function mouseOut() {
+    this.src = "box1.png";
+}

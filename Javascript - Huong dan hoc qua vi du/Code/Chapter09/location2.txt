@@ -1,0 +1,11 @@
+            if (location.search) {
+                var querystring = location.search;
+                var splits = querystring.split('&');
+                for (var i = 0; i < splits.length; i++) {
+                    var splitpair = splits[i].split('=');
+                    var elem = document.createElement("p");
+                    var text = document.createTextNode(splitpair[0] + ": " + splitpair[1]);
+                    elem.appendChild(text);
+                    body.appendChild(elem);
+                 }
+            }

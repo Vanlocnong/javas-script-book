@@ -1,0 +1,9 @@
+function Star(constell,type,specclass,magnitude) {
+    this.constellation = constell;
+    this.type = type;
+    this.spectralClass = specclass;
+    this.mag  = magnitude;
+    this.show = function show() {
+        alert("hello, this is a method.");
+    }
+}

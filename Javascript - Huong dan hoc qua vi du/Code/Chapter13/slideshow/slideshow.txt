@@ -1,0 +1,34 @@
+var images = ['home_default.png','about_default.png','blog_default.png','logo.png'];
+
+function nextImage() {
+    var img = document.getElementById("slideimage");
+    var imgname = img.name.split("_");
+    var index = imgname[1];
+    if (index == images.length - 1) {
+        index = 0;
+    } else {
+        index++;
+    }
+    img.src = images[index];
+    img.name = "image_" + index;
+}
+
+function prevImage() {
+    var img = document.getElementById("slideimage");
+    var imgname = img.name.split("_");
+    var index = imgname[1];
+    if (index == 0) {
+        index = images.length - 1;
+    } else {
+        index--;
+    }
+    img.src = images[index];
+    img.name = "image_" + index;
+}
+
+
+var nextBtn = document.getElementById("nextbtn");
+var prevBtn = document.getElementById("prevbtn");
+EHandler.add(nextBtn,"click",function() { nextImage(); });
+EHandler.add(prevBtn,"click",function() { prevImage(); });
+

@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>AJAX Test</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.js"></script>
+</head>
+<body>
+<div id="states">
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+
+$.ajax({
+	type: "GET",
+	url: "json.php",
+	dataType: "json",
+	success: showStates
+});
+
+function showStates(data,status) {
+	$.each(data, function(item) {;
+		$("#states").append("<div>" + data[item] + "</div>");
+	});
+}
+
+
+});
+</script>
+
+</body>
+</html>

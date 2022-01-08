@@ -1,0 +1,4 @@
+function displayValue(){
+    var selected = document.forms["starform"].startype.value;
+    alert("You selected " + selected);
+}

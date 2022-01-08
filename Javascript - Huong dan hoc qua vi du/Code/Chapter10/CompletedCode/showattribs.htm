@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>Show Attribs</title>
+    <script type="text/javascript">
+    function showattribs(e) {
+        var e = document.getElementById("braingialink");
+        var elemList = "";
+        for (var element in e) {
+            var attrib = e.getAttribute(element);       
+            elemList = elemList + element + ": " + attrib + "\n";
+        }
+        alert(elemList);
+    }
+    </script>
+</head>
+<body>
+<a onclick="return showattribs();" href="http://www.braingia.org" id="braingialink">Steve Suehring's
+Web Site</a>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>
+

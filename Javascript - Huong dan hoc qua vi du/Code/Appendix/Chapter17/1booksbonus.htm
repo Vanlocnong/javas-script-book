@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Books</title>
+</head>
+<body>
+<div id="xmldata"></div>
+<p><a href="#" id="displaytable">Display Table</a></p>
+<script type="text/javascript">
+
+var tablelink = document.getElementById("displaytable");
+if (typeof window.addEventListener != "undefined") {
+    tablelink.addEventListener("click",getXML,false);
+} else {
+    tablelink.attachEvent("onclick",getXML);
+}
+
+
+function displayData() {
+    var xmlEl = docObj.getElementsByTagName("book");
+    var table = document.createElement("table");
+    table.setAttribute("id","bookstable");
+    table.border = "1";
+    var tbody = document.createElement("tbody");
+
+    // Append the body to the table
+    table.appendChild(tbody);
+    var row = document.createElement("tr");
+
+    for (colHead = 0; colHead < xmlEl[0].childNodes.length; colHead++) {
+        if (xmlEl[0].childNodes[colHead].nodeType != 1) {
+            continue;
+        }
+        var tableHead = document.createElement("th");
+        var colName = document.createTextNode(xmlEl[0].childNodes[colHead].nodeName);
+        tableHead.appendChild(colName);
+        row.appendChild(tableHead);
+    }
+    tbody.appendChild(row);
+
+
+    // Create table row
+    for (i = 0; i < xmlEl.length; i++) {
+        var row = document.createElement("tr");
+        // Create the row/td elements
+        for (j = 0; j < xmlEl[i].childNodes.length; j++) {
+            // Skip it if the type is not 1
+            if (xmlEl[i].childNodes[j].nodeType != 1) {
+                continue;
+            }
+
+            // Insert the actual text/data from the XML document.
+            var td = document.createElement("td");
+            var xmlData = document.createTextNode(xmlEl[i].childNodes[j].firstChild.nodeValue);
+            td.appendChild(xmlData);
+            row.appendChild(td);
+        }
+        tbody.appendChild(row);
+    }
+    var tableanchor = document.createElement("a");
+    var tableanchortext = document.createTextNode("Hide Table");
+    tableanchor.setAttribute("id","hidetable");
+    tableanchor.setAttribute("href","#");
+    tableanchor.appendChild(tableanchortext);
+    if (typeof window.addEventListener != "undefined") {
+        tableanchor.addEventListener("click",hideTable,false);
+    } else {
+        tableanchor.attachEvent("onclick",hideTable);
+    }
+    document.getElementById("xmldata").appendChild(tableanchor);
+    document.getElementById("xmldata").appendChild(table);
+}
+
+function hideTable() {
+    var bookstable = document.getElementById("bookstable");
+    bookstable.style.display = "none";
+    tablelink.style.display = "";
+    var tableanchor = document.getElementById("hidetable");
+    tableanchor.style.display = "none";
+}
+
+function getXML()
+{
+    tablelink.style.display = "none";
+    if (typeof document.implementation.createDocument != "undefined")
+    {
+        docObj = document.implementation.createDocument("", "", null);
+        docObj.onload = displayData;
+    }
+    else if (window.ActiveXObject)
+    {
+        docObj = new ActiveXObject("Microsoft.XMLDOM");
+        docObj.onreadystatechange = function () {
+            if (docObj.readyState == 4) displayData()
+        };
+    }
+    docObj.load("books.xml");
+}
+
+</script>
+</body>
+</html>

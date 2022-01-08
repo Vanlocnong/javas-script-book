@@ -1,0 +1,18 @@
+var star = new Array( );
+star[0] = "Polaris";
+star[1] = "Deneb";
+star[2] = "Vega";
+star[3] = "Altair";
+
+var numStars = star.length;   // star.length is 4.
+
+var myArray = new Array( );
+myArray[0] = "first";
+myArray[1] = "second";
+var newArray = myArray.concat("third");
+// newArray is now [first,second,third]
+
+var myFirstArray = [51,67];
+var mySecondArray = [18,"hello",125];
+var newArray = myFirstArray.concat(mySecondArray)
+// newArray is [51,67,18,"hello",125]

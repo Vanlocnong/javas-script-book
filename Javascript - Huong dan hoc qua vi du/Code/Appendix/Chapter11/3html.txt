@@ -1,0 +1,43 @@
+<form id="pizzaform" action="#" onsubmit="return false;">
+<p>
+<input type="button" onclick="flip(veggiespecial)" name="veggiespecial" value="Veggie Special" />
+<input type="button" onclick="flip(meatspecial)" name="meatspecial" value="Meat Special" />
+<input type="button" onclick="flip(hawaiian)" name="hawaiian" value="Hawaiian" />
+</p>
+<table>
+<tr><td>Toppings</td><td>Crust</td><td>Size</td></tr>
+<tr>
+<td><input type="checkbox" id="sausage" value="Sausage" name="toppingcheck" />Sausage</td>
+<td><input type="radio" name="crust" value="Regular" checked="checked" id="radio1" />Regular</td>
+<td><input type="radio" name="size" value="Small" checked="checked" id="radiosize1" />Small</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="pepperoni" value="Pepperoni" name="toppingcheck" />Pepperoni</td>
+<td><input type="radio" name="crust" value="Deep Dish" id="radio2" />Deep Dish</td>
+<td><input type="radio" name="size" value="Medium" id="radiosize2" />Medium</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="ham" value="Ham" name="toppingcheck" />Ham</td>
+<td><input type="radio" name="crust" value="Thin" id="radio3" />Thin</td>
+<td><input type="radio" name="size" value="Large" id="radiosize3" />Large</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="peppers" value="Green Peppers" name="toppingcheck" />Green Peppers</td>
+<td></td>
+</tr>
+<tr>
+<td><input type="checkbox" id="mushrooms" value="Mushrooms" name="toppingcheck"
+/>Mushrooms</td>
+<td></td>
+</tr>
+<tr>
+<td><input type="checkbox" id="onions" value="Onions" name="toppingcheck" />Onions</td>
+<td></td>
+</tr>
+<tr>
+<td><input type="checkbox" id="pineapple" value="Pineapple" name="toppingcheck" />Pineapple</td>
+<td></td>
+</tr>
+</table>
+<p><input type="submit" id="formsubmit" name="formsubmit" value="Prep Pizza" onclick="prepza();" /></p>
+</form>
